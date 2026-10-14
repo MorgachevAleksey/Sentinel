@@ -13,12 +13,12 @@ public class HealthController {
         this.healthService = healthService;
     }
 
-    @GetMapping("/health")
+    @GetMapping("/info/health")
     public String health(){
         return healthService.health();
     }
 
-    @GetMapping("/status")
+    @GetMapping("/info/status")
     public Map<String, Object> status(){
         return healthService.status();
     }
