@@ -76,6 +76,8 @@ Docer compose - контейнер
 1) Задать режим работы Hibernate в YAML конфигурации
 2) Подключить зависимости JPA\Hibernate, FlyWay, JDBC\postgreSQL
 3) Создать Docker compose YAML в корне
+4) Создать миграцию Flyway на SQL
+5) Реализовать слои репозитория и сервиса
 
 ---
 # Аннотации 
