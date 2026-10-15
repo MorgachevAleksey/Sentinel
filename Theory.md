@@ -39,6 +39,18 @@ Spring Boot Actuator
 Swagger 
 Для документации
 
+Spring Boot JPA
+ORM\Hibernate
+
+postgreSQL
+БД
+
+Docker compose
+Контейнеризация
+
+FlyWay
+Версионная работа с БД
+
 ---
 # Практика
 
