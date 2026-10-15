@@ -4,5 +4,6 @@ import com.fintech.trade_bot.sentinel.model.Candle;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CandleRepository extends JpaRepository<Candle, Long> {
+    //Нужен SQL с WHERE
 
 }

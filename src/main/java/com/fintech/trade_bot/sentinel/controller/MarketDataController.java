@@ -13,6 +13,7 @@ public class MarketDataController {
         this.marketDataService = marketDataService;
     }
 
+    //Поиск свечей по тикеру (заглушка)
     @GetMapping("/market/{ticker}")
     public String getTickerInfo(@PathVariable("ticker") String ticker){
         return marketDataService.getTickerInfo(ticker);

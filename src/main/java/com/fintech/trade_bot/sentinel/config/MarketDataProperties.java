@@ -11,11 +11,13 @@ import org.springframework.validation.annotation.Validated;
 public class MarketDataProperties {
     @NotBlank
     private String baseUrl;
-    private String timeoutSeconds;
+    private int timeoutSeconds;
     @Valid
     private Retry retry = new Retry();
 
     public static class Retry{
+
+
         private int maxAttempts;
         @Min(value = 0)
         private long backoffMs;
@@ -38,7 +40,7 @@ public class MarketDataProperties {
     public void setBaseUrl(String baseUrl){
         this.baseUrl = baseUrl;
     }
-    public void setTimeoutSeconds(String timeoutSeconds){
+    public void setTimeoutSeconds(int timeoutSeconds){
         this.timeoutSeconds = timeoutSeconds;
     }
     public void setRetry(Retry retry){
@@ -48,7 +50,7 @@ public class MarketDataProperties {
     public String getBaseUrl(){
         return this.baseUrl;
     }
-    public String getTimeoutSeconds(){
+    public int getTimeoutSeconds(){
         return this.timeoutSeconds;
     }
     public Retry getRetry(){

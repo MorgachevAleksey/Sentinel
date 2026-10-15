@@ -21,6 +21,6 @@ sentinel:
       backoff-ms: 1000
 
 
-  logging:
-    level:
-      org.flywaydb: DEBUG
+logging:
+  level:
+    org.flywaydb: DEBUG

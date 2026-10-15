@@ -16,7 +16,7 @@ server:
 sentinel:
   version: "0.1"
   market-data:
-    base-url: https://iss.moex.com/iss/reference/
+    base-url: https://iss.moex.com
     timeout-seconds: 30
     retry:
       max-attempts: 3

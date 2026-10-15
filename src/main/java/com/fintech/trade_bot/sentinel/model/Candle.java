@@ -32,7 +32,6 @@ public class Candle {
 
     }
     public Candle(
-            long id,
             String ticker,
             String timeFrame,
             Instant openTime,
