@@ -27,6 +27,13 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     //Валидация
     implementation("org.springframework.boot:spring-boot-starter-validation")
+    //JPA, Hibernate, ORM
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    //Flyway: основной механизм миграций и поддержка postgreSQL
+    implementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-database-postgresql")
+    //JDBC-драйвер
+    runtimeOnly("org.postgresql:postgresql")
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

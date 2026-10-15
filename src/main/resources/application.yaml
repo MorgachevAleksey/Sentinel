@@ -1,18 +1,23 @@
 spring:
   application:
-    name: Sentinel
+    name: sentinel
+  profiles:
+    active: dev
+  jpa:
+    hibernate:
+      ddl-auto: validate
 
 server:
   port: 8080
 
 sentinel:
-  version: 0.1
+  version: "0.1"
   market-data:
     base-url: https://iss.moex.com/iss/reference/
-    timeout-seconds: 30 #????? ???????? ??????
+    timeout-seconds: 30
     retry:
       max-attempts: 3
-      bakkoff-ms: 1000 #????? ????? ????? ?????????
+      backoff-ms: 1000
 
 
 

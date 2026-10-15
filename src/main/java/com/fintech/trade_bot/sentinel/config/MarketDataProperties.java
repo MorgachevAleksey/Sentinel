@@ -1,21 +1,29 @@
 package com.fintech.trade_bot.sentinel.config;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.validation.annotation.Validated;
 
 @ConfigurationProperties(prefix = "sentinel.market-data")
+@Validated
 public class MarketDataProperties {
+    @NotBlank
     private String baseUrl;
     private String timeoutSeconds;
+    @Valid
     private Retry retry = new Retry();
 
     public static class Retry{
         private int maxAttempts;
+        @Min(value = 0)
         private long backoffMs;
 
         public void setMaxAttempts(int maxAttempts){
             this.maxAttempts = maxAttempts;
         }
-        public void setBackoffMs(int backoffMs){
+        public void setBackoffMs(long backoffMs){
             this.backoffMs = backoffMs;
         }
 
