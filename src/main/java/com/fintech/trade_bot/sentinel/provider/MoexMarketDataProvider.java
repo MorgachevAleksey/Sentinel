@@ -4,10 +4,10 @@ import com.fintech.trade_bot.sentinel.mapper.MoexCandlesMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MoexDataProvider implements DataProvider {
+public class MoexMarketDataProvider implements MarketDataProvider {
     private final MoexCandlesMapper moexCandlesMapper;
 
-    public MoexDataProvider(MoexCandlesMapper moexCandlesMapper){
+    public MoexMarketDataProvider(MoexCandlesMapper moexCandlesMapper){
         this.moexCandlesMapper = moexCandlesMapper;
     }
 }

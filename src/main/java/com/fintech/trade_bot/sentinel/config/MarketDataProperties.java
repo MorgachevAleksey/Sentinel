@@ -9,16 +9,18 @@ import org.springframework.validation.annotation.Validated;
 @ConfigurationProperties(prefix = "sentinel.market-data")
 @Validated
 public class MarketDataProperties {
+    //Базовый URL путь для запросов приложения
     @NotBlank
     private String baseUrl;
+    //Время ожидания ответа от сервера, в секундах
     private int timeoutSeconds;
     @Valid
     private Retry retry = new Retry();
 
     public static class Retry{
-
-
+        //Максимальное кол-во повторынх запросов после возврата ошибки
         private int maxAttempts;
+        //Время задержки между повторными запросами после ошибки, в милисекундах
         @Min(value = 0)
         private long backoffMs;
 
