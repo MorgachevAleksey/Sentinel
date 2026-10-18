@@ -11,26 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MarketDataController {
     private final MarketDataService marketDataService;
 
-    public MarketDataController(MarketDataService marketDataService, MoexClient moexClient){
+    public MarketDataController(MarketDataService marketDataService){
         this.marketDataService = marketDataService;
-        //Для теста
-        this.moexClient = moexClient;
     }
-
-    //Поиск свечей по тикеру (заглушка)
-    @GetMapping("/market/{ticker}")
-    public String getTickerInfo(@PathVariable("ticker") String ticker){
-        return marketDataService.getTickerInfo(ticker);
-    }
-
-    //Тестовый эндопинт
-    private final MoexClient moexClient;
-    @GetMapping("/market/{ticker}/raw")
-    public MoexCandlesResponse rawCandles(@PathVariable String ticker) {
-        return moexClient.fetchDailyCandles(
-                ticker,
-                java.time.LocalDate.now().minusDays(30)
-        );
-    }
-
 }

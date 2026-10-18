@@ -1,21 +1,31 @@
 package com.fintech.trade_bot.sentinel.service;
 
 import com.fintech.trade_bot.sentinel.config.MarketDataProperties;
+import com.fintech.trade_bot.sentinel.mapper.MoexCandlesMapper;
+import com.fintech.trade_bot.sentinel.provider.MoexMarketDataProvider;
+import com.fintech.trade_bot.sentinel.repository.CandleRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
+
+//Класс-оркестратор
 @Service
 public class MarketDataService {
-    private final MarketDataProperties marketDataProperties;
+    private final CandleRepository candleRepository;
+    private final MoexMarketDataProvider provider;
 
-    public MarketDataService(MarketDataProperties marketDataProperties){
-        this.marketDataProperties = marketDataProperties;
+    public MarketDataService (CandleRepository candleRepository, MoexMarketDataProvider provider){
+        this.candleRepository = candleRepository;
+        this.provider = provider;
     }
 
-    public String getTickerInfo(String ticker){
-        return  "Ticker: " + ticker +
-                " BaseUrl= " + marketDataProperties.getBaseUrl() +
-                " TimeoutSeconds= " + marketDataProperties.getTimeoutSeconds() +
-                " MaxAttempts= " + marketDataProperties.getRetry().getMaxAttempts() +
-                " BackoffMs= " + marketDataProperties.getRetry().getBackoffMs();
+    @Transactional
+    public int syncSize(String ticker,
+                        String timeframe,
+                        Instant from,
+                        Instant to
+    ){
+        return 0;
     }
 }
