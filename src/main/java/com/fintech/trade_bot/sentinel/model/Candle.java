@@ -13,8 +13,10 @@ public class Candle {
     private long id;
     @Column(nullable = false, length = 20)
     private String ticker;
+    //Размер одной свечи
     @Column(nullable = false, length = 16)
     private String timeframe;
+    //OHLC
     @Column(name = "open_time", nullable = false)
     private Instant openTime;
     @Column(name = "open_price", nullable = false, precision = 19, scale = 6)
@@ -25,6 +27,7 @@ public class Candle {
     private BigDecimal highPrice;
     @Column(name = "close_price", nullable = false, precision = 19, scale = 6)
     private BigDecimal closePrice;
+    //Обьем торгов
     @Column(nullable = false, precision = 24, scale = 6)
     private BigDecimal volume;
 

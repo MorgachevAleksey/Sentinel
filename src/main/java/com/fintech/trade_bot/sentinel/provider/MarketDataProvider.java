@@ -1,7 +1,15 @@
 package com.fintech.trade_bot.sentinel.provider;
 
-import org.springframework.stereotype.Component;
+import com.fintech.trade_bot.sentinel.model.Candle;
 
-@Component
+import java.time.Instant;
+import java.util.List;
+
 public interface MarketDataProvider {
+    List<Candle> fetchCandles(
+            String ticker,
+            String timeframe,
+            Instant start,
+            Instant end
+    );
 }

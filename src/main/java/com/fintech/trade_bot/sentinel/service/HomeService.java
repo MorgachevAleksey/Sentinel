@@ -6,8 +6,7 @@ import org.springframework.stereotype.Service;
 public class HomeService {
     public String home(){
         return "Добро пожаловать в робота для торговли Sentinel" + " | " +
-                "Актуальный список эндопинтов: " + " | " +
-                "/market - получение данных в виде свечей" + " | " +
-                "/info - мониторинг приложения";
+                "Актуальный список эндпоинтов: " + " | " +
+                "POST /market/{ticker}/sync — загрузка свечей с MOEX";
     }
 }
