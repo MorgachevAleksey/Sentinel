@@ -17,6 +17,7 @@ public class MoexClient {
         this.moexRestClient = moexRestClient;
     }
 
+    //Метод запроса ДНЕВНЫХ свечей
     public MoexCandlesResponse fetchDailyCandles(String ticker, LocalDate from){
         return moexRestClient.get() //Выбор Http-метода
                 .uri(uriBuilder -> uriBuilder //Билдит URL

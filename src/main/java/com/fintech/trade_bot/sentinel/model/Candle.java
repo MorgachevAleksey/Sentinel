@@ -16,7 +16,7 @@ public class Candle {
     //Размер одной свечи
     @Column(nullable = false, length = 16)
     private String timeframe;
-    //OHLC
+    //OHLC+openTime
     @Column(name = "open_time", nullable = false)
     private Instant openTime;
     @Column(name = "open_price", nullable = false, precision = 19, scale = 6)
