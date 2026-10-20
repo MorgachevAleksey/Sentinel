@@ -11,6 +11,8 @@ import java.util.Optional;
 
 @Repository
 public interface CandleRepository extends JpaRepository<Candle, Long> {
+    //Поиск всех ЗАПИСАННЫХ свечей за указанный период
+
     //Поиск всех свечей по тикеру и таймфрейму за указанный временной диапазон
     Page<Candle> findByTickerAndTimeframeAndOpenTimeBetween(
             String ticker,

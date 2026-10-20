@@ -9,7 +9,7 @@
 
 Основной поток:
 ```text
-Controller -> Service ─┬-> Repository → PostgreSQL
+Controller -> Service ─┬-> Repository -> PostgreSQL
                        │
                        └-> MarketDataProvider
                                    └-> MoexMarketDataProvider
@@ -30,17 +30,16 @@ Controller -> Service ─┬-> Repository → PostgreSQL
 - HTTP-клиент MOEX ISS на RestClient
 - DTO ответа MOEX и маппер MoexCandlesResponse -> List<Candle>
 - Провайдер рыночных данных: интерфейс + реализация для MOEX
+- Сквозной пайплайн MOEX → PostgreSQL
 
 Планируется:
-- Сквозной пайплайн MOEX → PostgreSQL
 - Торговая стратегия Mean Reversion
 - Документация Swagger
 - Адаптер T-Invest Sandbox
 - Перевод Gradle: Groovy -> Kotlin
 
 ---
-
-# Эндпоинты
+## Эндпоинты
 
 - GET / - приветствие и список эндпоинтов
 
@@ -65,7 +64,6 @@ Controller -> Service ─┬-> Repository → PostgreSQL
 - Bean Validation
 
 ---
-
 ## Конфигурации:
 
 - dev - активна по умолчанию
