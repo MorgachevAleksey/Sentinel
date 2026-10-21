@@ -5,7 +5,7 @@
 ## Архитектура
 
 - Слоистая архитектура
-- Паттерн "Стратегия" (планируется для торговых стратегий)
+- Паттерн "Стратегия" *каркас*
 
 Основной поток:
 ```text
@@ -20,10 +20,10 @@ Controller -> Service ─┬-> Repository -> PostgreSQL
 ---
 ## Торговые стратегии
 
-- Mean Reversion - контртрендовая стратегия, при которой покупается перепроданный актив в расчёте на возврат цены к среднему
+- Mean Reversion - контртрендовая стратегия, при которой покупается перепроданный актив в расчёте на возврат цены к среднему *в разработке*
 
 ---
-## Road map
+## Прогресс
 
 Реализовано:
 - Инициализация проекта, слои controller/service
@@ -31,17 +31,25 @@ Controller -> Service ─┬-> Repository -> PostgreSQL
 - Настройка конфигураций проекта 12 factor app: dev/prod
 - Валидация конфигурации через @ConfigurationProperties
 - PostgreSQL 17 в Docker, миграции Flyway
-- Сущность Candle, репозиторий, сервис чтения с пагинацией
+- Сущность Candle, репозиторий
 - HTTP-клиент MOEX ISS на RestClient
 - DTO ответа MOEX и маппер MoexCandlesResponse -> List<Candle>
 - Провайдер рыночных данных: интерфейс + реализация для MOEX
 - Сквозной пайплайн MOEX → PostgreSQL
-- Торговая стратегия Mean Reversion
+
+Написанно, пока не используется:
+- Каркас торговой стратегии: контракт TradingStrategy\TradingSignal, реализация MeanReversionStrategy
+- CandleQueryService — пагинация
+- Зависимость Actuator
+- Cлой брокера
+- dto.Request
 
 Планируется:
+- Реализация торговой стратегии Mean Reversion
 - Документация Swagger
 - Адаптер T-Invest Sandbox
 - Перевод Gradle: Groovy -> Kotlin
+- Кастомный HelthIndicator
 
 ---
 ## Эндпоинты

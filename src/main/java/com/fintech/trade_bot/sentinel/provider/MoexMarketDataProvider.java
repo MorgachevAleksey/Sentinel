@@ -29,5 +29,5 @@ public class MoexMarketDataProvider implements MarketDataProvider {
     ){
         MoexCandlesResponse response = moexClient.fetchDailyCandles(ticker, start.atZone(ZoneOffset.UTC).toLocalDate());
         return moexCandlesMapper.toCandles(ticker, timeframe, response);
-    };
+    }
 }
