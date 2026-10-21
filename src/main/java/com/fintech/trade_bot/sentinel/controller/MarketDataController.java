@@ -1,6 +1,11 @@
 package com.fintech.trade_bot.sentinel.controller;
 
+import com.fintech.trade_bot.sentinel.dto.response.CandleResponse;
+import com.fintech.trade_bot.sentinel.model.Candle;
+import com.fintech.trade_bot.sentinel.service.CandleQueryService;
 import com.fintech.trade_bot.sentinel.service.MarketDataService;
+import org.springframework.data.domain.Page;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
@@ -11,9 +16,11 @@ import java.util.Map;
 @RequestMapping("/market")
 public class MarketDataController {
     private final MarketDataService marketDataService;
+    private final CandleQueryService candleQueryService;
 
-    public MarketDataController(MarketDataService marketDataService){
+    public MarketDataController(MarketDataService marketDataService, CandleQueryService candleQueryService){
         this.marketDataService = marketDataService;
+        this.candleQueryService = candleQueryService;
     }
 
     @PostMapping("/{ticker}/sync")
@@ -40,11 +47,11 @@ public class MarketDataController {
         );
 
         return Map.of(
-                "saved", saved,
                 "ticker", ticker,
+                "saved", saved,
                 "timeframe", timeframe,
-                "from", from.toString(),
-                "to", to.toString()
+                "from", String.valueOf(from),
+                "to", String.valueOf(to)
         );
     }
 }

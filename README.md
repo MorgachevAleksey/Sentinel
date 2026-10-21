@@ -36,9 +36,9 @@ Controller -> Service ─┬-> Repository -> PostgreSQL
 - DTO ответа MOEX и маппер MoexCandlesResponse -> List<Candle>
 - Провайдер рыночных данных: интерфейс + реализация для MOEX
 - Сквозной пайплайн MOEX → PostgreSQL
+- Торговая стратегия Mean Reversion
 
 Планируется:
-- Торговая стратегия Mean Reversion
 - Документация Swagger
 - Адаптер T-Invest Sandbox
 - Перевод Gradle: Groovy -> Kotlin
